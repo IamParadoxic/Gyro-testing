@@ -11,13 +11,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class MotorWinch extends Subsystem {
 	
 	
-	
-	public void motorwinch(){
-			
-		
-		RobotMap.winchmotor.set(1);
-	}
-	
 	public void WinchStop(){
 		RobotMap.winchmotor.set(0);
 	}
