@@ -18,6 +18,7 @@ public class MotorWinch extends Subsystem {
 	public void Gyro(){
 		
 		if(RobotMap.GWinch.getAngle() <=90 && RobotMap.GWinch.getAngle() > 0.1){
+			RobotMap.GWinch.reset();
 			RobotMap.WenchSol.set(Value.kForward);
 			RobotMap.winchmotor.set(1);
 		}
@@ -26,7 +27,22 @@ public class MotorWinch extends Subsystem {
 			RobotMap.winchmotor.set(0);
 		}
 	}
+	public void lock(){
+		RobotMap.WenchSol.set(Value.kReverse);
+	}
+	public void unlock(){
+		RobotMap.WenchSol.set(Value.kForward);
+	}
 	
+	public void Down(){
+		RobotMap.WenchM.set(1);
+	}
+	public void Up(){
+		RobotMap.WenchM.set(-1);
+	}
+	public void Stop(){
+		RobotMap.WenchM.set(0);
+	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

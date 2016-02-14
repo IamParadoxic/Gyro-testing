@@ -29,8 +29,9 @@ public class Robot extends IterativeRobot {
     Command autonomousCommand;
     Command AutoCommand;
     Command GWinch;
-    
-    
+    Command WLock;
+    Command Wup;
+    Command Wdown;
     
     
     
@@ -44,7 +45,14 @@ public class Robot extends IterativeRobot {
     	motorwinch = new MotorWinch();
     	
 		GWinch = new GyroWinch();
+		WLock = new WenchLock();
+		Wup = new Wench_up();
+		Wdown = new Wench_down();
 		
+		
+		RobotMap.GWinch.reset();
+		RobotMap.GWinch.calibrate();
+		RobotMap.GWinch.initGyro();
 		
 		oi = new OI();
         chooser = new SendableChooser();
@@ -103,7 +111,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-       SmartDashboard.putNumber("The gyo Value si ", RobotMap.GWinch.getAngle());
+       SmartDashboard.putNumber("The gyo Value is ", RobotMap.GWinch.getAngle());
         }	
     
     /**
